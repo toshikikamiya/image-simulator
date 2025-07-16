@@ -15,14 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const alertBox = document.getElementById('data-explosion-alert');
   const channelCountLabel = document.getElementById('channel-count');
 
+  // ✅ 初期状態をモノクロに設定
   let currentColorMode = 'mono';
   const sampleImage = new Image();
-  sampleImage.src = './img/image-simulator-sample.png'; 
+  sampleImage.src = './img/image-simulator-sample.png';
 
   const uploadedImage = new Image();
   let activeImage = sampleImage;
 
-  sampleImage.onload = () => updateImageAndCalculation();
+  sampleImage.onload = () => {
+    // ✅ モノクロボタンをactiveにする
+    colorButtons.forEach(btn => {
+      const isMono = btn.dataset.mode === 'mono';
+      btn.classList.toggle('active', isMono);
+    });
+
+    // ✅ チャンネル表示を1チャンネルに更新
+    if (channelCountLabel) {
+      channelCountLabel.textContent = '1チャンネル';
+    }
+
+    updateImageAndCalculation();
+  };
+
   sampleImage.onerror = () => {
     alert(`見本画像「${sampleImage.src}」の読み込みに失敗しました。\nファイル名が正しいか、ファイルがアップロードされているか確認してください。`);
   };
