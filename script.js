@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentColorMode = 'color';
   const sampleImage = new Image();
   // ★★★ ここに、用意したAI画像ファイルの名前を入れる！ ★★★
-  sampleImage.src = 'img/image-simulator-sample.png'; 
+  sampleImage.src = './img/image-simulator-sample.png'; 
   
   const uploadedImage = new Image();
   let activeImage = sampleImage;
