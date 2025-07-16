@@ -118,6 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calculationResult.innerHTML = `
       <p>${width.toLocaleString()}px × ${height.toLocaleString()}px × ${bits.toLocaleString()}bit ${channelText} = <span>${totalBits.toLocaleString()} bit</span></p>
       <p>= <span>${formatBytes(totalBytes)}</span></p>`;
-    if (totalBytes > 1_000_000n) { alertBox.style.display = 'block'; } else { alertBox.style.display = 'none'; }
+    if (totalBytes > 10_000_000n) { alertBox.style.display = 'block'; } else { alertBox.style.display = 'none'; }
   }
 });
