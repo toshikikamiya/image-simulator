@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像データ量シミュレーター</title>
+  <!-- CSSファイルをここで読み込むよ！ -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1><span class="icon">🖼️</span>画像データ量シミュレーター</h1>
+      <p>様々な設定を試して、画質とデータ量の関係を発見しよう！</p>
+    </header>
+    <main class="main-content">
+      <div class="controls-panel card">
+        <h2><span class="icon">⚙️</span>操作パネル</h2>
+        <div class="control-group">
+            <label>画像ソースの選択:</label>
+            <div class="button-group">
+              <button class="btn-source active" data-source="sample">見本画像</button>
+              <button class="btn-source" data-source="upload">アップロード</button>
+            </div>
+            <div id="upload-area" style="display: none; margin-top: 10px;">
+              <label for="image-upload" class="upload-btn">好きな画像をえらぶ</label>
+              <input type="file" id="image-upload" accept="image/*">
+            </div>
+        </div>
+        <div class="control-group">
+          <label for="width-slider">横の画素数: <span id="width-value">1920</span> px</label>
+          <input type="range" id="width-slider" min="64" max="7680" value="1920" step="1">
+        </div>
+        <div class="control-group">
+          <label for="height-slider">縦の画素数: <span id="height-value">1080</span> px</label>
+          <input type="range" id="height-slider" min="64" max="4320" value="1080" step="1">
+        </div>
+        <div class="control-group">
+          <label for="bits-slider">階調(ビット数): <span id="bits-value">24</span> bit</label>
+          <input type="range" id="bits-slider" min="1" max="24" value="24" step="1">
+        </div>
+        <div class="control-group">
+            <label>カラーモード:</label>
+            <div class="button-group">
+              <button class="btn-color active" data-mode="color">フルカラー</button>
+              <button class="btn-color" data-mode="mono">モノクロ</button>
+            </div>
+        </div>
+      </div>
+      <div class="output-panel">
+        <div class="preview-container card">
+          <h2><span class="icon">🎨</span>プレビュー</h2>
+          <div class="canvas-wrapper">
+             <canvas id="canvas"></canvas>
+          </div>
+        </div>
+        <div class="calculation-container card">
+          <h2><span class="icon">📊</span>データ量計算</h2>
+          <div id="calculation-result">
+            <p>設定を動かして計算結果を見てみよう！</p>
+          </div>
+          <div id="data-explosion-alert" class="alert-box">
+             💥 データ爆発警報！ 💥
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- JavaScriptファイルをここで読み込むよ！ -->
+  <script src="script.js"></script>
+</body>
+</html>
