@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const alertBox = document.getElementById('data-explosion-alert');
   const channelCountLabel = document.getElementById('channel-count');
 
-  let currentColorMode = 'color';
+  let currentColorMode = 'mono';
   const sampleImage = new Image();
   sampleImage.src = './img/image-simulator-sample.png'; 
 
